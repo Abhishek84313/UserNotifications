@@ -8,6 +8,7 @@ import { NotificationService } from './services/notification-service';
 import { RateLimiterMiddleware } from './rate-limiter';
 import { UserPreferenceSchema } from './schemas/user-preferences-schema';
 import { NotificationLogSchema } from './schemas/notification-log-schema';
+import { AppController } from './controllers/app-controller';
 dotenv.config();
 
 @Module({
@@ -19,6 +20,7 @@ dotenv.config();
     ])
   ],
   controllers: [
+    AppController,
     UserPreferencesController, 
     NotificationController
   ],
