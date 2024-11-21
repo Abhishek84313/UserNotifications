@@ -1,4 +1,5 @@
 import { Module, MiddlewareConsumer, NestModule } from '@nestjs/common';
+import * as dotenv from 'dotenv';
 import { MongooseModule } from '@nestjs/mongoose';
 import { UserPreferencesController } from './controllers/preferences-controller';
 import { NotificationController } from './controllers/notification-controller';
@@ -7,10 +8,11 @@ import { NotificationService } from './services/notification-service';
 import { RateLimiterMiddleware } from './rate-limiter';
 import { UserPreferenceSchema } from './schemas/user-preferences-schema';
 import { NotificationLogSchema } from './schemas/notification-log-schema';
+dotenv.config();
 
 @Module({
   imports: [
-    MongooseModule.forRoot("mongodb://127.0.0.1:27017"),
+    MongooseModule.forRoot(process.env.MONGODB_URI??""),
     MongooseModule.forFeature([
       { name: 'UserPreference', schema: UserPreferenceSchema },
       { name: 'NotificationLog', schema: NotificationLogSchema }

@@ -20,6 +20,7 @@
     "@nestjs/platform-express": "^10.4.8",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.1",
+    "dotenv": "^16.4.5",
     "mongoose": "^8.8.2",
     "nestjs-joi": "^1.10.1"
   },
